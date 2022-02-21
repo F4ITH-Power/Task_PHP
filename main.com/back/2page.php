@@ -1,33 +1,14 @@
-<!---Ver 1.0.4(01.18.2022)--->
+<!---Ver 1.0.5(02.21.2022)--->
 
 <title>Authorization successful</title>
 
 <link rel='stylesheet' href='/front/style.css'>
 <?php
-//$script = file_get_contents('return.js');   // Writing to a script variable
 $back = $_SERVER['HTTP_REFERER'];   //  Writing to the variable of the last visited page
 
 date_default_timezone_set('Europe/London');
 
 require_once 'usersDataBase.php';
-//require_once 'function.php';
-
-$_monthsList = array
-(
-    "1"=>"Января",
-    "2"=>"Февраля",
-    "3"=>"Марта",
-    "4"=>"Апреля",
-    "5"=>"Мая",
-    "6"=>"Июня",
-    "7"=>"Июля",
-    "8"=>"Августа",
-    "9"=>"Сентября",
-    "10"=>"Октября",
-    "11"=>"Ноября",
-    "12"=>"Декабря"
-);
-
 // Check on GET
 if ((isset($_GET['userName']) && trim($_GET['userName']) !== '') && (isset($_GET['userPassword']) && trim($_GET['userPassword'])!== ''))
 {   // Saving entered data into variables
@@ -51,8 +32,6 @@ else   // Return to home page
     alert ('Error')
     </script>";
 }
-$date = $_GET["date-start"];
-$timestamp = strtotime($date);
 ?>
 
 <div class="header">
@@ -74,11 +53,8 @@ $timestamp = strtotime($date);
         
         Your Username - <?php echo $arr['userName']; ?>(<?php echo mb_strlen($_GET["userName"]); ?> signifier) <br/>
         Your Password - <?php echo $arr['userPassword']; ?>(<?php echo mb_strlen($_GET["userPassword"]); ?> signifier)<br/>
-
-        <?php 
-        //$years = [date("y", $timestamp)];
-        $month = $_monthsList[date("n", $timestamp)];
-        //echo $month;
-        echo date("j", $timestamp)." ".$month." ".date("Y", $timestamp);
+        <?php
+        require_once 'timeUnix.php';
         ?>
     </div>
+</div>

@@ -1,4 +1,4 @@
-<!---Ver 1.0.4(01.18.2022)--->
+<!---Ver 1.0.5(02.21.2022)--->
 <!DOCTYPE html>
 <html lang="eng">
 <head>
@@ -23,12 +23,12 @@
     </div>
 </div>
 <div class="wrapper">
-    <form class="nice-form" method="get" action="back/2page.php">    <!---PHP--->
+    <form class="nice-form" method="get">    <!---PHP--->
         <label for="name">Log In</label>
-        <input class = "datepicker-toggle-button" type="date" id="start" name="date-start" required>
-        <input id="name" name = "userName" type="text" placeholder="Name" class="checked">
-        <input id="password" class="checked" name = "userPassword" placeholder="Password" type="password">
-        <input type="submit" value="SUBMIT" name="send" disabled class="check-button">
+        <input formaction="back/timeUnix.php" class = "datepicker-toggle-button" type="date" id="start" name="date-start" required>
+        <input formaction="back/2page.php" id="name" name = "userName" type="text" placeholder="Name" class="checked">
+        <input formaction="back/2page.php" id="password" class="checked" name = "userPassword" placeholder="Password" type="password">
+        <input formaction="back/2page.php" type="submit" value="SUBMIT" name="send" disabled class="check-button">
     </form>
 </div>
 <script type="text/javascript" src="front/main.js"></script>  <!---JS--->
